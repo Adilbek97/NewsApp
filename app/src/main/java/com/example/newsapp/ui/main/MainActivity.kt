@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
+import com.example.newsapp.gone
 import com.example.newsapp.models.Article
 import com.example.newsapp.showToast
 import com.example.newsapp.ui.detail.DetailActivity
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity(),
 
         presenter.itemPagedList.observe(this,Observer{
             Log.d(TAG," ${it.size} items came")
+            progress_bar.gone()
             newsListAdapter.submitList(it)
         })
     }
